@@ -22,7 +22,7 @@ For more detailed instructions see [here](https://github.com/eco-evo-thr-2022/fi
 *What is especially interesting (to you!) about this project?:*
 Both Phoebe and I spend a lot of time thinking about shellfish populations, both wild and farmed, and the degree to which these populations are connected. Thinking about larval dispersal and how it relates to biodiversity through the lens of neutral theory is not only a fun idea to play around with (as is monkeying with the model code and parameters!), but also an important dimension for us to consider when examining population connectivity and genetic diversity of shellfish species.  
 
-*How do you plan to tackle this project?:* 
+*How do you plan to tackle this project?:* We aim to conduct a review of the literature to identify papers that apply neutral theory to marine systems with high levels of dispersal. Ideally, one of these papers will have clear methods that we can use to generate our own model (or better yet, some existing code!) and then run a number of simulations and report our results. It would be interesting to consider how dispersal rates and distances may vary depending on the marine habitat, for example oyster larvae within and estuary vs scallop larvae in the open ocean. 
 
 *What concepts or tools from class relate to this project?:* This project relates directly to our discussions of neutral theory and its applications in the field of ecology. The goal of this project is to delve more deeply into the theory of the neutral theory of biodiversity and explore how it can be applied in the context of marine communities and ecosystems. 
 
