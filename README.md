@@ -11,11 +11,12 @@ For more detailed instructions see [here](https://github.com/eco-evo-thr-2022/fi
 
 ## Project Proposal
 
-Name(s) of the folks involved in this project:
+Name(s) of the folks involved in this project: Phoebe Jekielek and Sarah Risley
 
-Working title:
+Working title: Neutral Theory...?
 
 Project summary (1-2 sentences):
+
 
 What is especially interesting (to you!) about this project?:
 
