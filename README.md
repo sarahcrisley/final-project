@@ -12,19 +12,20 @@ For more detailed instructions see [here](https://github.com/eco-evo-thr-2022/fi
 
 ## Project Proposal
 
-Name(s) of the folks involved in this project: Phoebe Jekielek and Sarah Risley
+*Name(s) of the folks involved in this project:* Phoebe Jekielek and Sarah Risley
 
-Working title: Neutral Theory & the Stochastic Process of Dispersal in Marine Communities 
+*Working title:* Neutral Theory & the Stochastic Process of Dispersal in Marine Communities 
 
-Project summary (1-2 sentences):
+*Project summary (1-2 sentences):*
 
 
-What is especially interesting (to you!) about this project?:
+*What is especially interesting (to you!) about this project?:*
+Both Phoebe and I spend a lot of time thinking about shellfish populations, both wild and farmed, and the degree to which these populations are connected. Thinking about larval dispersal and how it relates to biodiversity through the lens of neutral theory is not only a fun idea to play around with (as is monkeying with the model code and parameters!), but also an important dimension for us to consider when examining population connectivity and genetic diversity of shellfish species.  
 
-How do you plan to tackle this project?: 
+*How do you plan to tackle this project?:* 
 
 *What concepts or tools from class relate to this project?:* This project relates directly to our discussions of neutral theory and its applications in the field of ecology. The goal of this project is to delve more deeply into the theory of the neutral theory of biodiversity and explore how it can be applied in the context of marine communities and ecosystems. 
 
-What additional resources (code, data, literature) would support this project?:
+*What additional resources (code, data, literature) would support this project?:* This project will rely on both literature and code. 
 
-How can Andy or Renata help?:
+*How can Andy or Renata help?:* Any literature suggestions would be greatly appreciated, as would some office hour time to run through our code and talk about what we would need to make a neutral theory model that accounts for marine levels of dispersal (vs. terrestrial models that may have smaller estimates of dispersal). 
