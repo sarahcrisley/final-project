@@ -17,6 +17,7 @@ For more detailed instructions see [here](https://github.com/eco-evo-thr-2022/fi
 *Working title:* Neutral Theory & the Stochastic Process of Dispersal in Marine Communities 
 
 *Project summary (1-2 sentences):*
+This project aims to conduct a review of the literature to identify papers that apply neutral theory to marine systems, if any, focusing on species with high levels of dispersal such as shellfish. Using existing models and developing our own we will consider how dispersal rates and distances may vary depending on the marine habitat, for example oyster larvae within an estuary vs scallop larvae in the open ocean. 
 
 
 *What is especially interesting (to you!) about this project?:*
