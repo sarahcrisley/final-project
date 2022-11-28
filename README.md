@@ -25,6 +25,8 @@ Both Phoebe and I spend a lot of time thinking about shellfish populations, both
 
 *How do you plan to tackle this project?:* We aim to conduct a review of the literature to identify papers that apply neutral theory to marine systems with high levels of dispersal. Ideally, one of these papers will have clear methods that we can use to generate our own model (or better yet, some existing code!) and then run a number of simulations and report our results. It would be interesting to consider how dispersal rates and distances may vary depending on the marine habitat, for example oyster larvae within an estuary vs scallop larvae in the open ocean. 
 
+*Game plan:*
+
 1) Identify (max 20) papers discussing neutral and dispersal--by Wednesday.
 2) Read and identify parameters and methods related to modeling neutral theory in marine systems with dispersal.
 3) Identity guiding paper with model methods and example parameters--this will be used as a model for our inquiry.
