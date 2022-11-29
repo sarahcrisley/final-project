@@ -28,7 +28,7 @@ Both Phoebe and I spend a lot of time thinking about shellfish populations, both
 *Game plan:*
 
 1) Identify (max 20) papers discussing neutral and dispersal--by Wednesday.
-2) Read and identify parameters and methods related to modeling neutral theory in marine systems with dispersal (i.e. dispersal parameter m).
+2) Read and identify parameters and methods related to modeling neutral theory in marine systems with dispersal (i.e. dispersal parameter m or dispersal kernal--see Rosindell et al., 2011).
 3) Identity guiding paper with model methods and example parameters--this will be used as a model for our inquiry.
 4) Generate a one page synthesis of our findings, listing considerations for parameter selection, suggested data sources, and potential applications in marine systems. 
 
