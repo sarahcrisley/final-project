@@ -10,9 +10,49 @@ output: word_document
 Here is where we will pull notes/quotes/frame our outline for the write up doc:
 
 
+**Borthagaray et al., 2009** 
+Best used in introduction, helpful for explaining richness and composition and the dynamics that influence these factors in marine/coastal habitats, why we're using UNTB.
+
+"Here, we showed that for a rocky intertidal community the geographic distance, as proxy of landscape connectivity, is an important factor to explain the species richness and composition. We also found a linear decrease in species similarity with increasing geographic distance regardless of the functional group considered." (Borthagaray et al., 2009, p. 648)
+
+"However, the strong relationship between geographic distance and species richness or composition supports the hypothesis that landscape connectivity is not as high as previously thought. Our results are therefore consistent with an alternative view suggesting that mean dispersal
+distances of invertebrate larvae (25–150 km: Palumbi 2003) or rafting should not produce a high level of homogeneity." (Borthagaray et al., 2009, p. 648)
+
+-Neutral- and niche-based mechanisms operate simultaneously
+
+"In this sense, the pattern of variation in richness and composition of sessile species reported here is consistent with a lottery model and therefore with a neutral theory.Thus, when
+dispersal is limited, in the neutral theory, nearby sessile communities should show similar biological composition due to the geographic proximity regardless of physical conditions or species differences in response to local conditions." (Borthagaray et al., 2009, p. 649)
+
+"In summary, this paper shows that at the landscape scale, connectivity among sites can be important to understand the local structure of a marine community, in particular in the rocky intertidal zone...More connected patches tend to harbour more rich communities by increasing the
+number of sessile species, what indirectly improve the condition to mobile ones, and more connected (between them) local communities tend to be more similar in species composition than more distant communities." (Borthagaray et al., 2009, p. 649) --> aka Tobler's law 
+
+So...connectivity does matter, but ultimately the neutral model applies to these systems and is an appropriate method to understand species richness and composition in the intertidal. 
+
+**Chisholm and Lichstein, 2009**
+-dispersal into the local community governed by the immigration parameter m
+-m lacks a clear biological interpretation
+-They: Derive expressions for m based on the geometry of a plot defining the local community and the parameters of a dispersal kernal 
+-looks at how SADs vary w/ varying spatial scale of observation 
 
 
-Weeeee!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```{r cars}
 summary(cars)
