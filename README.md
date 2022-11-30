@@ -37,3 +37,5 @@ Both Phoebe and I spend a lot of time thinking about shellfish populations, both
 *What additional resources (code, data, literature) would support this project?:* This project will rely on both literature and code. 
 
 *How can Andy or Renata help?:* Any literature suggestions would be greatly appreciated, as would some office hour time to run through our code and talk about what we would need to make a neutral theory model that accounts for marine levels of dispersal (vs. terrestrial models that may have smaller estimates of dispersal). 
+
+
