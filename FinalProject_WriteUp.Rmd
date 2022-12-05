@@ -76,16 +76,37 @@ Section 4:
 
 
 
-**WRITE UP**
+#WRITE UP
+
+
+
+Section 2: (SR)
+
+##Study System 
+The Damariscotta River estuary, located in midcoast Maine, hosts a diversity of coastal marine habitats ranging from rocky shores to soft sediment intertidal areas and eelgrass beds. The estuary is home to extensive human activity, including recreational boating, commercial fishing, and shellfish aquaculture. The Damariscotta has more than a dozen marine aquaculture operations that total 0.93 km², where farmers grow American oysters, mussels, scallops, and kelp (Maine DMR, 2022). The biodiversity in the Damariscotta is similar to other estuaries in the Gulf of Maine and varies along habitat type and physical and biological gradients (Britsch, 2021). 
+
+The intertidal mudflat is the focus of this study. This habitat hosts a diversity of shellfish, marine worm, and arthropod species. Of commercial interest are soft-shell clams (*Mya arenara*), quahogs (*Mercenaria mercenaria*), razor clams (*Ensis directus*), blood worms (*Glycera dibranchiata*), and sand worms (*Nereis virens*). Within the past 20 years commercial shellfish harvesters have observed the appearance of wild American oyster (*Crassostrea virginica*), a previously extirpated species now reappearing ostensibly as a result of aquaculture activity (Delago, 2021; Risley, 2022). Green crabs (*Carcinus maenas*), an invasive species originally from the Mediterranean, have also experienced a recent growth in population abundance. Green crabs prey on shellfish species, particularly the delicate soft-shell clam, and have resulted in declines in clam populations as their number grow (Tan and Beal, 2015). 
+
+
+
+##Methods
+For this project we will use R Studio to simulate both a neutral theory model and a competitive model for the system. (Describe methods in-depth here)
+- Create simulated log-series data
+- 
 
 
 
 
+#References
+Britsch, M. L. (2021). Marine Aquaculture in Maine: Understanding Diverse Perspectives and Interactions at Multiple Scales. University of Maine.
 
+Delago, D. F. (2021). Investigating Larval Spillover From Oyster Aquaculture Through Geospatial Habitat Suitability Index Modeling: A Damariscotta River Estuary Case Study. University of New England.
 
+Maine DMR. (2022). Aquaculture Map: Maine Department of Marine Resources. https://www.maine.gov/dmr/aquaculture/leases/aquaculturemap.html
 
+Risley, S. (2022). Linking Local Knowledge & Community Science in Support of Coastal Marine Stewardship (3564) [The University of Maine]. Electronic Theses and Dissertations. https://digitalcommons.library.umaine.edu/etd/3564
 
-
+Tan, E. B. P., & Beal, B. F. (2015). Interactions between the invasive European green crab, Carcinus maenas (L.), and juveniles of the soft-shell clam, Mya arenaria L., in eastern Maine, USA. Journal of Experimental Marine Biology and Ecology, 462, 62–73. https://doi.org/10.1016/j.jembe.2014.10.021
 
 
 
