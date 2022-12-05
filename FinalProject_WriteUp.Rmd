@@ -85,14 +85,17 @@ Section 2: (SR)
 ##Study System 
 The Damariscotta River estuary, located in midcoast Maine, hosts a diversity of coastal marine habitats ranging from rocky shores to soft sediment intertidal areas and eelgrass beds. The estuary is home to extensive human activity, including recreational boating, commercial fishing, and shellfish aquaculture. The Damariscotta has more than a dozen marine aquaculture operations that total 0.93 km², where farmers grow American oysters, mussels, scallops, and kelp (Maine DMR, 2022). The biodiversity in the Damariscotta is similar to other estuaries in the Gulf of Maine and varies along habitat type and physical and biological gradients (Britsch, 2021). 
 
-The intertidal mudflat is the focus of this study. This habitat hosts a diversity of shellfish, marine worm, and arthropod species. Of commercial interest are soft-shell clams (*Mya arenara*), quahogs (*Mercenaria mercenaria*), razor clams (*Ensis directus*), blood worms (*Glycera dibranchiata*), and sand worms (*Nereis virens*). Within the past 20 years commercial shellfish harvesters have observed the appearance of wild American oyster (*Crassostrea virginica*), a previously extirpated species now reappearing ostensibly as a result of aquaculture activity (Delago, 2021; Risley, 2022). Green crabs (*Carcinus maenas*), an invasive species originally from the Mediterranean, have also experienced a recent growth in population abundance. Green crabs prey on shellfish species, particularly the delicate soft-shell clam, and have resulted in declines in clam populations as their number grow (Tan and Beal, 2015). 
+The intertidal mudflat is the focus of this study. This habitat hosts a diversity of shellfish, marine worm, and arthropod species. Of commercial interest are soft-shell clams (*Mya arenara*), quahogs (*Mercenaria mercenaria*), razor clams (*Ensis directus*), blood worms (*Glycera dibranchiata*), and sand worms (*Nereis virens*). Within the past 20 years commercial shellfish harvesters have observed the appearance of wild American oyster (*Crassostrea virginica*), a previously extirpated species now reappearing ostensibly as a result of aquaculture activity (Delago, 2021; Risley, 2022). Green crabs (*Carcinus maenas*), an invasive species originally from the Mediterranean, have also experienced a recent growth in population abundance, likely linked to warming ocean temperatures. Green crabs prey on shellfish species, particularly the delicate soft-shell clam, and have resulted in declines in clam populations as their number grow (Tan and Beal, 2015). 
 
-
+Therefore, the Damariscotta has two 'rare' species whose growth and expansion could effect the biodiversity of the whole system. This study seeks two explore how increases in rare species, like the wild American oyster and the green crab, can influence biodvisity within the ecosystem. 
 
 ##Methods
 For this project we will use R Studio to simulate both a neutral theory model and a competitive model for the system. (Describe methods in-depth here)
 - Create simulated log-series data
-- 
+- Run neutral model to completion
+- Run neutral model, halt, amplify rare speciese and run to completion
+- Run competition model to completion
+- Analyze SADs 
 
 
 
