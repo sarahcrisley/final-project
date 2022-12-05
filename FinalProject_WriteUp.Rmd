@@ -34,7 +34,9 @@ So...connectivity does matter, but ultimately the neutral model applies to these
 -They: Derive expressions for m based on the geometry of a plot defining the local community and the parameters of a dispersal kernal 
 -looks at how SADs vary w/ varying spatial scale of observation 
 
+"The immigration parameter m is the probability that a death in the local community is replaced by the offspring of an individual from outside the local community." (Chisholm and Lichstein, 2009, p. 1385) 
 
+...put notes on hold because we moved more towards neutral theory in marine intertidal ecosystems. 
 
 
 
