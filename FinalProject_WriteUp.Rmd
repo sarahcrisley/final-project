@@ -43,17 +43,12 @@ Section 4:
 
 **WRITE UP**
 
-INTRO: (SR)
+
 **Introduction**
 
-Hubbell's neutral theory of biodiversity and biogeography highlights the importance of unifying ecological processes--birth, death, and immigration--and offers a null model that can provide insight into current and future species-abundance distributions. It is commonly used in ecology to describe and understand biodiversity and evolution patterns, and although its applications are expanding, it primarily supports theoretical exploration rather than engaging with empirical data (Rosindell et al., 2011). Although neutral theory had been applied in the marine context (see Alzate et al., 2019; Dolan et al., 2007; Wootton, 2005), it is not commonly used in marine ecosystems or for species that are targetted by marine fisheries. In this study, we seek to explore how neutral theory can be used to understand biodiversity patterns in intertidal marine ecosystems. We will compare the neutral theory model to a competitive model and explore how 
+Hubbell's neutral theory of biodiversity and biogeography highlights the importance of unifying ecological processes--birth, death, and immigration--and offers a null model that can provide insight into current and future species-abundance distributions. Neutral theory is commonly used in ecology to describe and understand biodiversity and evolution patterns, and although its applications are expanding, it primarily supports theoretical exploration (Rosindell et al., 2011). Although neutral theory had been applied in the marine context (see Alzate et al., 2019, Dolan et al., 2007, Wootton, 2005, among others), it is not commonly used in marine ecosystems or for species that are targeted by marine fisheries. In this study, we seek to explore how neutral theory can be used to understand biodiversity patterns in intertidal marine ecosystems, with a focus on commercially important shellfish species. We will compare the neutral theory model to a competitive model and assess how well each model represents biodiversity patterns in a marine ecosystem. Specifically, we will model the biodiversity patterns that occur under immigration pulses from rare species. This approach aims to model recent species introductions observed in many of Maine's intertidal marine ecosystems, namely the introduction of wild American oysters and increases in invasive green crab populations. This study will inform future analyses and help to identify potential forces driving biodiversity patterns in these systems.    
 
 
-  
-  -What does increasing immigration of a rare species do to the biodiversity of the system? (i.e. species introduced from aquaculture or invasive)
-
-
-Section 2: (SR)
 **Study System** 
 
 The Damariscotta River estuary, located in midcoast Maine, hosts a diversity of coastal marine habitats ranging from rocky shores to soft sediment intertidal areas and eelgrass beds. The estuary is home to extensive human activity, including recreational boating, commercial fishing, and shellfish aquaculture. The Damariscotta has more than a dozen marine aquaculture operations that total 0.93 km², where farmers grow American oysters, mussels, scallops, and kelp (Maine DMR, 2022). The biodiversity in the Damariscotta is similar to other estuaries in the Gulf of Maine and varies along habitat type and physical and biological gradients (Britsch, 2021). 
