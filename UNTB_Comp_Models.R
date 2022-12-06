@@ -3,7 +3,7 @@
 
 
 ##Installing roleLite
-devtools::install_github('role-model/roleLite')
+#devtools::install_github('role-model/roleLite')
 
 library(roleLite)
 
@@ -17,24 +17,15 @@ neut <- untbSim(J = 1000, # number of individuals in local community
                 Sm = 50, # number of species in meta community
                 Jm = 10000, # number of individuals in meta community
                 nu = 0, # speciation probability
-                m = 0.1, # immigration probability
+                m = 0.1, # immigration probability 
                 niter = 10000) # number of iteration to run
 
 ##Passing to getAbund
 neutAbund <- getAbund(neut)
+#?Is this log-series? What does the untbSim simulate as the original pop?
 
 # returns a data.frame, see `?getAbund` for more detials
 head(neutAbund)
-
-##   tstep spID abund
-## 1     0    1   245
-## 2     0    2   159
-## 3     0    3   103
-## 4     0    4    83
-## 5     0    5    73
-## 6     0    6    57
-
-
 
 
 
@@ -43,10 +34,12 @@ head(neutAbund)
 ############################
 
 S <- 50 # number of species
+#? Why do we specify this variable here rather than in the simulation like above?
 
 # make a competition matrix
-a <- aa <- matrix(runif(S^2, 0, 5), nrow = S)
-diag(aa) <- runif(S, 1, 10)
+a <- aa <- matrix(runif(S^2, 0, 5), nrow = S) #creates duplicate matrices
+diag(aa) <- runif(S, 1, 10) #? Extracting the diagonal of the matrix aa? 
+
 
 # run sim
 comp <- compSim(J = 1000, # number of individuals in local community
@@ -60,33 +53,51 @@ comp <- compSim(J = 1000, # number of individuals in local community
 compAbund <- getAbund(comp)
 head(compAbund)
 
-##   tstep spID abund
-## 1     0    1   283
-## 2     0    2   145
-## 3     0    3   105
-## 4     0    4    80
-## 5     0    5    66
-## 6     0    6    55
-
-
-
-
 
 
 #######################
 ###SAD VISUALIZATION###
 #######################
 
-##Looking at the final SAD
+
+##Looking at the final SAD for neut
+finalSADneut <- neutAbund$abund[neutAbund$tstep == max(neutAbund$tstep)]
+
+plot(sort(finalSADneut, decreasing = TRUE), log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance',
+     main = 'Neutral SAD')
+
+
+##Looking at the final SAD for comp
 finalSADComp <- compAbund$abund[compAbund$tstep == max(compAbund$tstep)]
 
 plot(sort(finalSADComp, decreasing = TRUE), log = 'y', 
-     xlab = 'Rank', ylab = 'Abundance')
+     xlab = 'Rank', ylab = 'Abundance',
+     main = 'Competitive SAD')
+
+
+##Both
+par(mfrow=c(2,1))
+plot(sort(finalSADneut, decreasing = TRUE), log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance',
+     main = 'Neutral SAD', col = 'blue',
+     xlim = c(0,25))
+plot(sort(finalSADComp, decreasing = TRUE), log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance',
+     main = 'Competitive SAD', col = 'red',
+     xlim = c(0,25))
 
 
 
+##Time series for a specific species: neut
+# look at population timeseries for species 10
+sp10_neut <- neutAbund[neutAbund$spID == 10, ]
 
-##Time series for a specific species
+plot(sp10_neut$tstep, sp10_neut$abund, type = 'b', 
+     xlab = 'Time step', ylab = 'Abundance')
+
+
+##Time series for a specific species: comp
 # look at population timeseries for species 10
 sp10 <- compAbund[compAbund$spID == 10, ]
 
