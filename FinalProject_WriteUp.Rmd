@@ -1,6 +1,6 @@
 ---
-title: "FinalProject_WriteUp"
-author: "Phoebe Jekielek and Sarah Risley"
+title: "Final Project Write Up"
+authors: "Phoebe Jekielek and Sarah Risley"
 date: "2022-11-30"
 output: word_document
 ---
@@ -41,7 +41,7 @@ Section 4:
 -What worked and didn't work 
 
 
-**WRITE UP**
+*WRITE UP*
 
 
 **Introduction**
@@ -66,6 +66,12 @@ For this project we will use R Studio to simulate both a neutral theory model an
 - Run competition model to completion
 - Analyze SADs 
 
+
+**ADD CODE BELOW SO FIGURES CAN BE IN SINGLE DOC**
+*look at old spatial analysis Rmd for how to hide code in knit*
+```{r}
+
+```
 
 
 
