@@ -1,4 +1,4 @@
-#Ecolgy & Evolutionary Theory Final Project
+#Ecology & Evolutionary Theory Final Project
 #Name: Phoebe Jekielek and Sarah Risley
 
 
