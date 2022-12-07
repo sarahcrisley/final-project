@@ -69,9 +69,16 @@ For this project we will use R Studio to simulate both a neutral theory model an
 
 **ADD CODE BELOW SO FIGURES CAN BE IN SINGLE DOC**
 *look at old spatial analysis Rmd for how to hide code in knit*
-```{r}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r setup, include=FALSE}
 
 ```
+
 
 
 
