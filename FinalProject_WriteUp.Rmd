@@ -67,6 +67,9 @@ For this project we will use R Studio to simulate both a neutral theory model an
 - Analyze SADs 
 
 
+**Results**
+
+
 **ADD CODE BELOW SO FIGURES CAN BE IN SINGLE DOC**
 *look at old spatial analysis Rmd for how to hide code in knit*
 ```{r setup, include=FALSE}

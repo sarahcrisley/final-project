@@ -76,7 +76,7 @@ plot(sort(finalSADComp, decreasing = TRUE), log = 'y',
 
 
 ##Both
-par(mfrow=c(2,1))
+#par(mfrow=c(2,1))
 plot(sort(finalSADneut, decreasing = TRUE), log = 'y', 
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Neutral SAD', col = 'blue',
