@@ -232,7 +232,7 @@ long_1 <- hillR::hill_taxa(longSADinvas, q)
 tab <- matrix(c(neut_2, comp_2, pre_2, post_2,long_2,
                 neut_0, comp_0, pre_0, post_0, long_0,
                 neut_1, comp_1, pre_1, post_1, long_1), ncol=3, nrow = 5)
-colnames(tab) <- c('Simpsons Evenness','Richness', 'Shannons Index')
+colnames(tab) <- c('Simpsons Evenness','Species Richness', 'Shannons Index')
 rownames(tab) <- c('Neutral Model','Competitive Model', 'Pre-Invasion', 'Post-Invasion', 'After Invasion')
 tab <- as.table(tab)
 tab <- round(tab, digits = 2)
