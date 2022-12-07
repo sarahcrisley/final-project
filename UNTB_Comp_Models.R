@@ -22,7 +22,7 @@ neut <- untbSim(J = 1000, # number of individuals in local community
 
 ##Passing to getAbund
 neutAbund <- getAbund(neut)
-#?Is this log-series? What does the untbSim simulate as the original pop?
+#log-series in meta community, initialize with random pull form meta comm for start of local comm
 
 # returns a data.frame, see `?getAbund` for more detials
 head(neutAbund)
@@ -34,12 +34,11 @@ head(neutAbund)
 ############################
 
 S <- 50 # number of species
-#? Why do we specify this variable here rather than in the simulation like above?
+#best practice to establish variable outside of fxn call 
 
 # make a competition matrix
-a <- aa <- matrix(runif(S^2, 0, 5), nrow = S) #creates duplicate matrices
-diag(aa) <- runif(S, 1, 10) #? Extracting the diagonal of the matrix aa? 
-
+a <- matrix(runif(S^2, 0, 5), nrow = S) 
+diag(a) <- runif(S, 1, 10) #increasing avg niche differentiation 
 
 # run sim
 comp <- compSim(J = 1000, # number of individuals in local community
@@ -81,11 +80,11 @@ par(mfrow=c(2,1))
 plot(sort(finalSADneut, decreasing = TRUE), log = 'y', 
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Neutral SAD', col = 'blue',
-     xlim = c(0,25))
+     xlim = c(0,30))
 plot(sort(finalSADComp, decreasing = TRUE), log = 'y', 
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Competitive SAD', col = 'red',
-     xlim = c(0,25))
+     xlim = c(0,30))
 
 
 
