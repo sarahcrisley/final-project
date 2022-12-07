@@ -5,43 +5,7 @@ date: "2022-11-30"
 output: word_document
 ---
 
-
-**OUTLINE**
-
-INTRO: (SR)
-- NTB is commonly used in ecology to describe and understand biodiversity and evolution patterns (Rosindell et al., 2011; Wootton, 2005)
-- Generally: NTB is for theoretical scenarios, rather than as a predictive model 
-- Also, NTB is not commonly applied to marine systems
-  -Cite the few papers that do deal with NTB (Alzante; Borthgaray et al., 2009; Dolan et al., 2007)
-- Here we're looking to: 
-  - Use NTB and competitive theory to evaluate how theoretical populations of shellfish will change over time under these scenarios in an estuary system 
-  -What does increasing immigration of a rare species do to the biodiversity of the system? (i.e. species introduced from aquaculture or invasive)
-  
-Section 1:(PJ)
-- What is NTB? (maybe Clark?)
-- What is competitive theory? (need papers)
-
-Section 2: (SR)
-- System description: introduction of oysters and increases in green crab populations 
-- Methods
-  -NTB
-  -Competitive
-  
-Section 3:
--Prelim results from models
-
-Section 4:
-- Discussion around special considerations for marine systems (Chust et al., 2016)
--Refutes NTB (Dornela et al., 2006)
-  -What about different dispersal rates? (Srisvastava and Pavel, 2013)
-  - How does the scale of observation influence model results? (Chisholm and Lichstein, 2009)
-  -What about harvesting activity? How does that play into the NTB model? 
-  -How does genetic manipulation from AQ influence biodiversity? 
-  -Connolly et al., 2014
--What worked and didn't work 
-
-
-*WRITE UP*
+*SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE, & INVASION MODELS*
 
 
 **Introduction**
@@ -125,6 +89,16 @@ the importance of rare species decreases in order species richness > Shannon ind
 
 **Discussion**
 
+
+*Things to Consider*
+- Discussion around special considerations for marine systems (Chust et al., 2016)
+-Refutes NTB (Dornela et al., 2006)
+  -What about different dispersal rates? (Srisvastava and Pavel, 2013)
+  - How does the scale of observation influence model results? (Chisholm and Lichstein, 2009)
+  -What about harvesting activity? How does that play into the NTB model? 
+  -How does genetic manipulation from AQ influence biodiversity? 
+  -Connolly et al., 2014
+-What worked and didn't work 
 
 
 **ADD CODE BELOW SO FIGURES CAN BE IN SINGLE DOC**
