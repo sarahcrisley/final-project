@@ -58,6 +58,10 @@ head(compAbund)
 ###SAD VISUALIZATION###
 #######################
 
+##Maxes
+max(neutAbund$abund) #277
+max(compAbund$abund) #262
+
 
 ##Looking at the final SAD for neut
 finalSADneut <- neutAbund$abund[neutAbund$tstep == max(neutAbund$tstep)]
@@ -65,6 +69,7 @@ finalSADneut <- neutAbund$abund[neutAbund$tstep == max(neutAbund$tstep)]
 plot(sort(finalSADneut, decreasing = TRUE), log = 'y', 
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Neutral SAD')
+
 
 
 ##Looking at the final SAD for comp
@@ -165,6 +170,12 @@ plot(abundInvader$tstep, abundInvader$abund, type = 'b',
 ###################
 ###INVASION SADS###
 ###################
+
+##Maxes
+max(abundPre$abund[abundPre$tstep == max(abundPre$tstep)]) #431
+max(abundPost$abund[abundPost$tstep == 13000]) #409
+max(abundPost$abund[abundPost$tstep == max(abundPost$tstep)]) #354
+
 
 #Right before invasion
 plot(sort(abundPre$abund[abundPre$tstep == max(abundPre$tstep)], 
