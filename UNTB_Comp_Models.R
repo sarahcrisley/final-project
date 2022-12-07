@@ -92,24 +92,6 @@ plot(sort(finalSADComp, decreasing = TRUE), log = 'y',
      xlim = c(0,30))
 
 
-
-##Time series for a specific species: neut
-# look at population timeseries for species 10
-sp10_neut <- neutAbund[neutAbund$spID == 10, ]
-
-plot(sp10_neut$tstep, sp10_neut$abund, type = 'b', 
-     xlab = 'Time step', ylab = 'Abundance')
-
-
-##Time series for a specific species: comp
-# look at population timeseries for species 10
-sp10 <- compAbund[compAbund$spID == 10, ]
-
-plot(sp10$tstep, sp10$abund, type = 'b', 
-     xlab = 'Time step', ylab = 'Abundance')
-
-
-
 ##################
 ###PURTUBATIONS###
 ##################

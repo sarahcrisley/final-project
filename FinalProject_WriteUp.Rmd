@@ -1,16 +1,18 @@
 ---
-title: "Final Project Write Up"
+title: "SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE, & INVASION MODELS"
 authors: "Phoebe Jekielek and Sarah Risley"
 date: "2022-11-30"
 output: word_document
 ---
 
-*SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE, & INVASION MODELS*
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 **Introduction**
 
 Hubbell's neutral theory of biodiversity and biogeography highlights the importance of unifying ecological processes--birth, death, and immigration--and offers a null model that can provide insight into current and future species-abundance distributions. Neutral theory is commonly used in ecology to describe and understand biodiversity and evolution patterns, and although its applications are expanding, it primarily supports theoretical exploration (Rosindell et al., 2011). Although neutral theory had been applied in the marine context (see Alzate et al., 2019, Dolan et al., 2007, Wootton, 2005, among others), it is not commonly used in marine ecosystems or for species that are targeted by marine fisheries. In this study, we seek to explore how neutral theory can be used to understand biodiversity patterns in intertidal marine ecosystems, with a focus on commercially important shellfish species. We will compare the neutral theory model to a competitive model and assess how well each model represents biodiversity patterns in a marine ecosystem. Specifically, we will model the biodiversity patterns that occur under immigration pulses from rare species. This approach aims to model recent species introductions observed in many of Maine's intertidal marine ecosystems, namely the introduction of wild American oysters and increases in invasive green crab populations. This study will inform future analyses and help to identify potential forces driving biodiversity patterns in these systems.    
+
 
 
 **Study System** 
@@ -20,6 +22,8 @@ The Damariscotta River estuary, located in midcoast Maine, hosts a diversity of 
 The intertidal mudflat is the focus of this study. This habitat hosts a diversity of shellfish, marine worm, and arthropod species. Of commercial interest are soft-shell clams (*Mya arenara*), quahogs (*Mercenaria mercenaria*), razor clams (*Ensis directus*), blood worms (*Glycera dibranchiata*), and sand worms (*Nereis virens*). Within the past 20 years commercial shellfish harvesters have observed the appearance of wild American oyster (*Crassostrea virginica*), a previously extirpated species now reappearing ostensibly as a result of aquaculture activity (Delago, 2021; Risley, 2022). Green crabs (*Carcinus maenas*), an invasive species originally from the Mediterranean, have also experienced a recent growth in population abundance, likely linked to warming ocean temperatures. Green crabs prey on shellfish species, particularly the delicate soft-shell clam, and have resulted in declines in clam populations as their number grow (Tan and Beal, 2015). 
 
 Therefore, the Damariscotta has two 'rare' species whose growth and expansion could affect the biodiversity of the whole system. This study seeks two explore how increases in rare species, like the wild American oyster and the green crab, can influence biodiversity within the ecosystem. 
+
+
 
 **Methods** (PJ)
 
@@ -44,10 +48,73 @@ We visualized SAD's for the invasion model at three timesteps: 10,000, 13,000, a
 
 
 **Results** (PJ)
+
+
+```{r, include=FALSE}
+library(roleLite)
+
+###NEUTRAL SIMULATION###
+##Run simulation
+neut <- untbSim(J = 1000, # number of individuals in local community
+                Sm = 50, # number of species in meta community
+                Jm = 10000, # number of individuals in meta community
+                nu = 0, # speciation probability
+                m = 0.1, # immigration probability 
+                niter = 10000) # number of iteration to run
+
+##Passing to getAbund
+neutAbund <- getAbund(neut)
+#log-series in meta community, initialize with random pull form meta comm for start of local comm
+
+# returns a data.frame, see `?getAbund` for more detials
+head(neutAbund)
+
+###COMPETITIVE SIMULATION###
+
+S <- 50 # number of species
+#best practice to establish variable outside of fxn call 
+
+# make a competition matrix
+a <- matrix(runif(S^2, 0, 5), nrow = S) 
+diag(a) <- runif(S, 1, 10) #increasing avg niche differentiation 
+
+# run sim
+comp <- compSim(J = 1000, # number of individuals in local community
+                Sm = S, # number of species in meta community
+                Jm = 10000, # number of individuals in meta community
+                nu = 0, # speciation probability
+                m = 0.1, # immigration probability
+                alpha = a, # competition matrix
+                niter = 10000) # number of iteration to run
+
+compAbund <- getAbund(comp)
+head(compAbund)
+
+
+```
+
+
 (NEUTRAL SAD)
+```{r, echo = FALSE}
+##Looking at the final SAD for neut
+finalSADneut <- neutAbund$abund[neutAbund$tstep == max(neutAbund$tstep)]
+
+plot(sort(finalSADneut, decreasing = TRUE), log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance',
+     main = 'Neutral SAD')
+```
+
 -Max abund = 277
 
 (COMP SAD)
+```{r, echo = FALSE}
+##Looking at the final SAD for comp
+finalSADComp <- compAbund$abund[compAbund$tstep == max(compAbund$tstep)]
+
+plot(sort(finalSADComp, decreasing = TRUE), log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance',
+     main = 'Competitive SAD')
+```
 -Max abund = 262
 -More species with lower abundances 
 -Overall, graphs look similar 
@@ -55,6 +122,80 @@ We visualized SAD's for the invasion model at three timesteps: 10,000, 13,000, a
 
 
 (INVASION SADs)
+
+```{r, include=FALSE}
+###PURTUBATIONS###
+
+##Neutral: rare species becomes abundant
+# parameter set-up
+S <- 50 
+J <- 1000
+nu <- 0
+m <- 0.1
+niter <- 10000
+
+# make meta SAD outside of `untbSim` so we can manipulate it to reflect 
+# invasion...hang tight, you'll see
+metaSAD <- pika::rlseries(S, 0.001) 
+
+# run sim pre-invasion
+untbPre <- untbSim(J = J, nu = nu, m = m, niter = niter, initMeta = metaSAD)
+
+#don't need to specify Sm and Jm 
+
+##Modifying metacommunity so least common species is 2x's as common
+newMetaSAD <- metaSAD
+irare <- which.min(newMetaSAD)[1] # index of a rare species
+newMetaSAD[irare] <- 2 * max(newMetaSAD)
+
+# now we can pass this new meta SAD to the sim function, and pass the final 
+# state of the pre-invasion simulation as the initial condition for this sim:
+untbPost <- untbSim(J = J, nu = nu, m = m, niter = niter, 
+                    initLocal = untbPre[nrow(untbPre), ], 
+                    initMeta = newMetaSAD)
+
+##Combining the two simulations
+abundPre <- getAbund(untbPre)
+abundPost <- getAbund(untbPost)
+
+# note: first timestep of post is last of pre, so we can discard one
+abundPost <- abundPost[abundPost$tstep != 0, ]
+
+# update timestep values of post to come *after* pre
+abundPost$tstep <- abundPost$tstep + max(abundPre$tstep)
+
+# combine
+abundAll <- rbind(abundPre, abundPost)
+
+# visualize abundance timeseries for invader
+abundInvader <- abundAll[abundAll$spID == irare, ]
+
+plot(abundInvader$tstep, abundInvader$abund, type = 'b',
+     xlab = 'Timestep', ylab = 'Abundance')
+
+```
+
+
+```{r, echo = FALSE}
+#Right before invasion
+plot(sort(abundPre$abund[abundPre$tstep == max(abundPre$tstep)], 
+          decreasing = TRUE), 
+     log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance', main = 'Right before invasion')
+
+#Shortly after invasion
+plot(sort(abundPost$abund[abundPost$tstep == 13000], 
+          decreasing = TRUE), 
+     log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance', main = 'Shortly after invasion')
+
+#Long after invasion
+plot(sort(abundPost$abund[abundPost$tstep == max(abundPost$tstep)], 
+          decreasing = TRUE), 
+     log = 'y', 
+     xlab = 'Rank', ylab = 'Abundance', main = 'Long after invasion')
+```
+
 -Pre and shortly after look very similar
 -Steep drop from max abundances species across all time steps
 -Appears to be two curves in graphs with break between rank 10-15 for short- and long-term after invasion, but not pre-invasion 
@@ -64,7 +205,55 @@ pre:431
 post short-term: 409
 post long-term: 354
 
-TABLE (ADD)
+TABLE
+
+```{r, include = FALSE}
+##Getting final SAD's for time steps 
+preSADinvas <- abundPre$abund[abundPre$tstep == max(abundPre$tstep)]
+postSADinvas <- abundPost$abund[abundPost$tstep == 13000]
+longSADinvas <- abundPost$abund[abundPost$tstep == max(abundPost$tstep)]
+
+#hill package 
+library(hillR)
+
+# Evenness 
+q <- 2 #Simpsons evenness 
+neut_2 <- hillR::hill_taxa(finalSADneut, q)
+comp_2 <- hillR::hill_taxa(finalSADComp, q)
+pre_2 <- hillR::hill_taxa(preSADinvas, q)
+post_2 <- hillR::hill_taxa(postSADinvas, q)
+long_2 <- hillR::hill_taxa(longSADinvas, q)
+
+q <- 0 #Species richness 
+neut_0 <- hillR::hill_taxa(finalSADneut, q)
+comp_0 <- hillR::hill_taxa(finalSADComp, q)
+pre_0 <- hillR::hill_taxa(preSADinvas, q)
+post_0 <- hillR::hill_taxa(postSADinvas, q)
+long_0 <- hillR::hill_taxa(longSADinvas, q)
+
+q <- 1-(1e-5) #Shannon's Index 
+neut_1 <- hillR::hill_taxa(finalSADneut, q)
+comp_1 <- hillR::hill_taxa(finalSADComp, q)
+pre_1 <- hillR::hill_taxa(preSADinvas, q)
+post_1 <- hillR::hill_taxa(postSADinvas, q)
+long_1 <- hillR::hill_taxa(longSADinvas, q)
+```
+
+
+
+```{r, echo = FALSE}
+##Compiling 
+tab <- matrix(c(neut_2, comp_2, pre_2, post_2,long_2,
+                neut_0, comp_0, pre_0, post_0, long_0,
+                neut_1, comp_1, pre_1, post_1, long_1), ncol=3, nrow = 5)
+colnames(tab) <- c('Simpsons Index','Species Richness', 'Shannons Index')
+rownames(tab) <- c('Neutral Model','Competitive Model', 'Pre-Invasion', 'Post-Invasion', 'After Invasion')
+tab <- as.table(tab)
+tab <- round(tab, digits = 2)
+tab
+```
+
+
 
 - Simpson's: relative abundances, how evenly the abundances are distributed
   -Greatest diversity of species in competative model
@@ -103,15 +292,8 @@ the importance of rare species decreases in order species richness > Shannon ind
 
 **ADD CODE BELOW SO FIGURES CAN BE IN SINGLE DOC**
 *look at old spatial analysis Rmd for how to hide code in knit*
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 
-
-```{r setup, include=FALSE}
-
-```
 
 
 
