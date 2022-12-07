@@ -80,6 +80,29 @@ We visualized SAD's for the invasion model at three timesteps: 10,000, 13,000, a
 
 
 **Results**
+- Simpson's: relative abundances, how evenly the abundances are distributed
+  -Greatest diversity of species in competative model
+  -Followed by Neutral
+  -Long term after invasion, then post invasion, then pre-invasion is lowest
+  -Relatively invasion model is much lower than both neutral and competitive 
+  
+
+-Species richness: count of species in community 
+  -Neutral model has greatest richness
+  -Competitive and pre-invasion are the same
+  -Richness declines post invasion, with lowest at long term after invasion time step 
+  -So fewer species in post-invasion model, but greater evenness regarding abundances across species 
+
+-Shannon's: species richness
+  -Neutral and competitive similar and most diverse
+  -Invasion model on the whole is lower
+  -Lowest pre, then after invasion, with short-term post-invasion having the highest of the three 
+
+the importance of rare species decreases in order species richness > Shannon index > Simpson index
+
+
+**Dicussion**
+
 
 
 **ADD CODE BELOW SO FIGURES CAN BE IN SINGLE DOC**
