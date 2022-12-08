@@ -1,8 +1,11 @@
 ---
-title: "SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE, & INVASION MODELS"
-authors: "Phoebe Jekielek and Sarah Risley"
+title: 'SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE, & INVASION MODELS'
+authors: Phoebe Jekielek and Sarah Risley
 date: "2022-11-30"
-output: word_document
+output:
+  word_document: default
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -204,7 +207,7 @@ pre:431
 post short-term: 409
 post long-term: 354
 
-TABLE
+TABLE--FIX TABLE
 
 ```{r, include = FALSE}
 ##Getting final SAD's for time steps 
@@ -277,8 +280,13 @@ the importance of rare species decreases in order species richness > Shannon ind
 
 **Discussion**
 
+-Neutral and competitive are very similar, give similar predictions
+-Competitive model is more diverse 
+-Niche differentiation increases in competitive model, therefore more likely to be diverse than neutral
+-
 
-*Things to Consider*
+
+*Things to Consider* (SCR)
 - Discussion around special considerations for marine systems (Chust et al., 2016)
 -Refutes NTB (Dornela et al., 2006)
   -What about different dispersal rates? (Srisvastava and Pavel, 2013)
