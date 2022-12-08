@@ -191,7 +191,59 @@ longSADinvas <- abundPost$abund[abundPost$tstep == max(abundPost$tstep)]
 ##################
 
 #hill package 
-library(hillR)
+library(vegan)
+library(pika)
+
+# params set-up
+Sm <- 50
+sadMeta <- rlseries(Sm, 0.001)
+J <- 1000
+nu <- 0
+m <- 0.1
+niter <- 10000
+
+## Neutral sim hill 
+hillz <- replicate(500, # number of times to replicate
+                   { # put all the code you need to replicate inside the { }
+                     oneNeut <- untbSim(J = J, nu = nu, m = m, niter = niter, 
+                                        initMeta = sadMeta)
+                     
+                     oneFinalSAD <- getAbund(oneNeut, tstep = nrow(oneNeut))
+                     
+                     # hill numbers
+                     theseHill <- renyi(oneFinalSAD$abund, scales = 0:2, 
+                                        hill = TRUE)
+                     
+                     # last line inside the {} should be the output you want
+                     return(theseHill)
+                   })
+
+# have a look: rows are hill numbers, columns are replicates
+hillz
+
+# we need to summarize this raw simulation, mean and SD are good options
+# we can get those with the apply function
+hillMeans <- apply(hillz, 2, mean)
+hillSDs <- apply(hillz, 2, sd)
+
+hillMeans
+hillSDs
+
+# now you can do that same thing (line 20 onwards) for other models!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Evenness 
 
