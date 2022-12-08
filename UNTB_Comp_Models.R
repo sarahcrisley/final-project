@@ -202,6 +202,7 @@ nu <- 0
 m <- 0.1
 niter <- 10000
 
+
 ## Neutral sim hill 
 hillz <- replicate(500, # number of times to replicate
                    { # put all the code you need to replicate inside the { }
@@ -218,72 +219,59 @@ hillz <- replicate(500, # number of times to replicate
                      return(theseHill)
                    })
 
-# have a look: rows are hill numbers, columns are replicates
-hillz
-
-# we need to summarize this raw simulation, mean and SD are good options
-# we can get those with the apply function
-hillMeans <- apply(hillz, 2, mean)
-hillSDs <- apply(hillz, 2, sd)
-
-hillMeans
-hillSDs
-
-
-# now you can do that same thing (line 20 onwards) for other models!
+# Summarizing this raw simulation, mean and SD are good options
+neut_hillMeans <- apply(hillz, 1, mean)
+neut_hillSDs <- apply(hillz, 1, sd)
 
 
 
+## Comp sim hill 
+hillz_2 <- replicate(500, # number of times to replicate
+                   { # put all the code you need to replicate inside the { }
+                           oneComp <- compSim(J = J, Sm = Sm, Jm = 10000, 
+                                              nu = nu,m = m, alpha = a, niter = niter) 
+                           
+                           oneFinalSAD <- getAbund(oneComp, tstep = nrow(oneComp))
+                           
+                           # hill numbers
+                           theseHill <- renyi(oneFinalSAD$abund, scales = 0:2, 
+                                              hill = TRUE)
+                           
+                           # last line inside the {} should be the output you want
+                           return(theseHill)
+                   })
+
+
+# Summarizing this raw simulation, mean and SD are good options
+comp_hillMeans <- apply(hillz_2, 1, mean)
+comp_hillSDs <- apply(hillz_2, 1, sd)
+
+
+
+## Invasion sim hill 
+hillz_2 <- replicate(500, # number of times to replicate
+                     { # put all the code you need to replicate inside the { }
+                             oneComp <- compSim(J = J, Sm = Sm, Jm = 10000, 
+                                                nu = nu,m = m, alpha = a, niter = niter) 
+                             
+                             oneFinalSAD <- getAbund(oneComp, tstep = nrow(oneComp))
+                             
+                             # hill numbers
+                             theseHill <- renyi(oneFinalSAD$abund, scales = 0:2, 
+                                                hill = TRUE)
+                             
+                             # last line inside the {} should be the output you want
+                             return(theseHill)
+                     })
+
+
+# Summarizing this raw simulation, mean and SD are good options
+comp_hillMeans <- apply(hillz_2, 1, mean)
+comp_hillSDs <- apply(hillz_2, 1, sd)
 
 
 
 
 
 
-
-
-
-
-
-
-# Evenness 
-
-
-q <- 0 #Species richness 
-
-neut_0 <- hillR::hill_taxa(finalSADneut, q)
-comp_0 <- hillR::hill_taxa(finalSADComp, q)
-pre_0 <- hillR::hill_taxa(preSADinvas, q)
-post_0 <- hillR::hill_taxa(postSADinvas, q)
-long_0 <- hillR::hill_taxa(longSADinvas, q)
-
-
-q <- 2 #Simpsons evenness 
-
-neut_2 <- hillR::hill_taxa(finalSADneut, q)
-comp_2 <- hillR::hill_taxa(finalSADComp, q)
-pre_2 <- hillR::hill_taxa(preSADinvas, q)
-post_2 <- hillR::hill_taxa(postSADinvas, q)
-long_2 <- hillR::hill_taxa(longSADinvas, q)
-
-
-q <- 1-(1e-5) #Shannon's Index 
-neut_1 <- hillR::hill_taxa(finalSADneut, q)
-comp_1 <- hillR::hill_taxa(finalSADComp, q)
-pre_1 <- hillR::hill_taxa(preSADinvas, q)
-post_1 <- hillR::hill_taxa(postSADinvas, q)
-long_1 <- hillR::hill_taxa(longSADinvas, q)
-
-# q = 0, get species richness 
-# q can't be exactly one, but as q gets close to 1 use 1-1E^-5 (like 1)
-
-##Compiling 
-tab <- matrix(c( neut_0, comp_0, pre_0, post_0, long_0,
-                 neut_2, comp_2, pre_2, post_2,long_2,
-                 neut_1, comp_1, pre_1, post_1, long_1), ncol=3, nrow = 5)
-colnames(tab) <- c('Species Richness','Simpsons Index', 'Shannons Index')
-rownames(tab) <- c('Neutral Model','Competitive Model', 'Pre-Invasion', 'Post-Invasion', 'After Invasion')
-tab <- as.table(tab)
-tab <- round(tab, digits = 2)
-tab
 
