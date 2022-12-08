@@ -13,7 +13,22 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Hubbell's neutral theory of biodiversity and biogeography highlights the importance of unifying ecological processes--birth, death, and immigration--and offers a null model that can provide insight into current and future species-abundance distributions. Neutral theory is commonly used in ecology to describe and understand biodiversity and evolution patterns, and although its applications are expanding, it primarily supports theoretical exploration (Rosindell et al., 2011). Although neutral theory had been applied in the marine context (see Alzate et al., 2019, Dolan et al., 2007, Wootton, 2005, among others), it is not commonly used in marine ecosystems or for species that are targeted by marine fisheries. In this study, we seek to explore how neutral theory can be used to understand biodiversity patterns in intertidal marine ecosystems, with a focus on commercially important shellfish species. We will compare the neutral theory model to a competitive model and assess how well each model represents biodiversity patterns in a marine ecosystem. Specifically, we will model the biodiversity patterns that occur under immigration pulses from rare species. This approach aims to model recent species introductions observed in many of Maine's intertidal marine ecosystems, namely the introduction of wild American oysters and increases in invasive green crab populations. This study will inform future analyses and help to identify potential forces driving biodiversity patterns in these systems.    
 
-Diversity Indices Overview (PJ)
+Diversity Indices Overview (PJ - in process)
+Species Richness - simply quantifies how many different species there are. Richness is a simple measure, so it has been a popular diversity index in ecology, where abundance data are often not available for the datasets of interest. 
+
+Simpson's Index - Simpson (1949) developed an index of diversity which is a measure of probability--the less diversity, the greater the probability that two randomly selected individuals will be the same species. In the absence of diversity (1 species), the probability that two individuals randomly selected will be the same is 1.
+
+Shannon's Index - The index is related to the concept of uncertainty. If for example, a community has very low diversity, we can be fairly certain of the identity of an organism we might choose by random (high certainty or low uncertainty). If a community is highly diverse and we choose an organism by random, we have a greater uncertainty of which species we will choose (low certainty or high uncertainty).
+
+https://bio.libretexts.org/Courses/Gettysburg_College/01%3A_Ecology_for_All/22%3A_Biodiversity/22.02%3A_Diversity_Indices - Good explanation for these and comparisons of Indices. Will re-write above!
+
+The shannon wiener index and Simpson indices include the measurement of community heterogeneity.
+
+Shannon wiener index bapplied information theory. The main measuring object of information theory is the content of system order or disorder. Shannon wiener index (Shannon-Weiner index) is used to describe the disorder and uncertainty of individual species. The higher the uncertainty, the higher the diversity. There are two factors in Shannon-Weiner diversity index: (1) number of species, i.e. richness; (2) the average or evenness of individual distribution in the species. A large number of species can increase diversity. Similarly, increasing the uniformity of individual distribution among species will also increase diversity. If each individual belongs to a different species, the diversity index is the largest. If each individual belongs to the same species, its diversity index is the smallest.
+
+Simpson diversity index D= probability that two individuals randomly sampled belong to different species, i.e. D=1- probability that two randomly sampled individuals belong to the same species,namely D=1- the sum of the number of species per species divided by the square of the total number. It can be seen that the more species in the community, the more uniform the distribution of various individuals, and the higher the index, indicating a good diversity of the community. The greater the Simpson index, the higher the diversity. It is a scalar of α-diversity. Rare species play a smaller role in simpson's diversity index, while common species play a larger role. The species diversity estimated by this method needs more samples.
+
+https://stats.libretexts.org/Bookshelves/Applied_Statistics/Book%3A_Natural_Resources_Biometrics_(Kiernan)/10%3A_Quantitative_Measures_of_Diversity_Site_Similarity_and_Habitat_Suitability/10.01%3A_Introduction__Simpsons_Index_and_Shannon-Weiner_Index
 
 
 **Study System** 
