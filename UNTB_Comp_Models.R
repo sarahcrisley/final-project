@@ -229,6 +229,7 @@ hillSDs <- apply(hillz, 2, sd)
 hillMeans
 hillSDs
 
+
 # now you can do that same thing (line 20 onwards) for other models!
 
 
