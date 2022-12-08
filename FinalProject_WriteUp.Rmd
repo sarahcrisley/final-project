@@ -30,8 +30,7 @@ The intertidal mudflat is the focus of this study. This habitat hosts a diversit
 Therefore, the Damariscotta has two 'rare' species whose growth and expansion could affect the biodiversity of the whole system. This study seeks two explore how increases in rare species, like the wild American oyster and the green crab, can influence biodiversity within the ecosystem. 
 
 
-
-**Methods** (PJ - updated 1800 12/7)
+**Methods** (PJ)
 
 For this project we will use R Studio to simulate both a neutral theory model and a competitive model for the system. We utilized the "roleLite" R package (xversion 0.1.0, Rominger) and then utilized the untbSim function to run a neutral simulation for a null model evaluation with the following parameters: 
  neut <- untbSim(J = 1000, # number of individuals in local community
@@ -105,7 +104,7 @@ plot(sort(finalSADneut, decreasing = TRUE), log = 'y',
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Neutral SAD')
 ```
-
+Resulting species abundance from the neutral model (277) was higher than that for the competitive model (262). 
 -Max abund = 277
 
 (COMP SAD)
@@ -286,7 +285,11 @@ the importance of rare species decreases in order species richness > Shannon ind
 -
 
 
+<<<<<<< HEAD
+*Things to Consider*
+=======
 *Things to Consider* (SCR)
+>>>>>>> cf00a3e175f46073c7bc04311c3e508d79dd1fed
 - Discussion around special considerations for marine systems (Chust et al., 2016)
 -Refutes NTB (Dornela et al., 2006)
   -What about different dispersal rates? (Srisvastava and Pavel, 2013)
