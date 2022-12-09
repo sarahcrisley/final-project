@@ -269,7 +269,17 @@ the importance of rare species decreases in order species richness > Shannon ind
 -Neutral and competitive are very similar, give similar predictions
 -Competitive model is more diverse 
 -Niche differentiation increases in competitive model, therefore more likely to be diverse than neutral
--
+- (He&Hu 2005): Like any other diversity indices, the Simpson index is also sensitive to sample size (increase with sample size) although its overall performance against several criteria is superior to many other indices such as the Shannon information entropy . The relationship between the NTB and Simpson diversity suggests that diversity patterns of the metacommunity can also be equally described by the Simpson index. This relationship provides an alternative approach to interpret and estimate the fundamental biodiversity parameter for the metacommunity.
+- Levine&HRL: Our results support the hypothesis that niche differences strongly stabilize coexistence. Most importantly, our findings
+provide strong empirical support for the critical role niche differences
+have in stabilizing species diversity, one of the longest unresolved
+problems in ecology.In an experiment manipulating
+species’ relative abundances, population growth rates increased
+when species became rare—the demographic signature of niche
+differences. Our work thus provides strong evidence that species
+differences have a critical role in stabilizing species diversity.
+
+
 
 
 <<<<<<< HEAD
@@ -281,8 +291,10 @@ the importance of rare species decreases in order species richness > Shannon ind
 -Refutes NTB (Dornela et al., 2006)
   -What about different dispersal rates? (Srisvastava and Pavel, 2013)
   - How does the scale of observation influence model results? (Chisholm and Lichstein, 2009)
-  -What about harvesting activity? How does that play into the NTB model? 
-  -How does genetic manipulation from AQ influence biodiversity? 
+  -What about harvesting activity (disturbance)? How does that play into the NTB model?
+  - - Maa (2014): Neutral models provide a robust null hypothesis because  they can provide estimates of beta diversity based on the simplest metacommunity scenario. However, neutral models can be used to detect disturbances in two different ways: First, data reject neutral predictions because the real assemblages vary too much or too little in terms of species composition and abundance (Dornelas et al. 2006; Caruso et al. 2012a,b); second, communities are really assembled under neutral dynamics, and disturbance directly affects neutral parameters, for example, by decreasing dispersal via increasing habitat fragmentation (Hubbell 2001) or by affecting some fundamental demographic parameters (Dornelas 2010). In this study, we basically used neutral models in the first sense because we believe that in observational studies, robust conclusions can be obtained only when sound statistical null hypotheses are rejected (Gotelli and Ulrich 2012).
+  -How does genetic manipulation from AQ influence biodiversity? *Maybe think of various impacts of AQ on biodiversity, not just genetic manipulation...
+  -- Diana (2009): Many impacts of AQ on biodiversity - introduction of non-natives to local populations, introduction of less-fit genes, introduction of disease, effluents and waste, harvesting of bait fish for aq feed...all of these can have negative impacts on biodiversity. 
   -Connolly et al., 2014
 -What worked and didn't work 
 
@@ -303,7 +315,11 @@ Britsch, M. L. (2021). Marine Aquaculture in Maine: Understanding Diverse Perspe
 
 Delago, D. F. (2021). Investigating Larval Spillover From Oyster Aquaculture Through Geospatial Habitat Suitability Index Modeling: A Damariscotta River Estuary Case Study. University of New England.
 
+Diana, J. S. (2009). Aquaculture production and biodiversity conservation. Bioscience, 59(1), 27-38.
+
 Dolan, J. R., Ritchie, M. E., & Ras, J. (2007). The “neutral” community structure of planktonic herbivores, tintinnid ciliates of the microzooplankton, across the SE Tropical Pacific Ocean. Biogeosciences, 4(3), 297–310. https://doi.org/10.5194/bg-4-297-2007
+
+Levine, J. M., & HilleRisLambers, J. (2009). The importance of niches for the maintenance of species diversity. Nature, 461(7261), 254-257.
 
 Maine DMR. (2022). Aquaculture Map: Maine Department of Marine Resources. https://www.maine.gov/dmr/aquaculture/leases/aquaculturemap.html
 
