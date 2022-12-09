@@ -43,11 +43,9 @@ For this project we will use R Studio to simulate both a neutral theory model an
 
 Additionally, we ran a competitive simulation model using the compSim function. This simulation used a competitive matrix with intraspecies competition removed in order to increase average niche differentiation. Both models were visualized using the final time step of a species abundance distribution (SAD) and biodiversity indices (Simpsons, Shannons, Richness) were calculated for each model. 
 
-An invasion model was generated to simulate the amplification of a rare species. This model consisted of a pre-invasion simulation merged with a post-invasion simulation in order to evaluate the effects of this amplification. We visualized SAD's for the invasion model at three timesteps -10,000, 13,000, and 20,000 iterations - in order to visualize biodiersity patterns immediately before an invasion (through 10,000 iterations), shortly after the invasion (from 10,000 to 13,000 iterations), and long after the invasion (up to 20,000 iterations). Biodiversity indices were calculated for each of these timesteps, respectively. The metacommunity was modified in the post-simulation to amplify the rare species by a factor of two (the rare species were twice as common). Both pre- and post-simulations used the untbSim package with the same parameters used in the previously-mentioned neutral and competitive models. 
+An invasion model was generated to simulate the amplification of a rare species. This model consisted of a pre-invasion simulation merged with a post-invasion simulation in order to evaluate the effects of this amplification. We visualized SAD's for the invasion model at three timesteps -10,000, 13,000, and 20,000 iterations - in order to visualize biodiersity patterns immediately before an invasion (through 10,000 iterations), shortly after the invasion (from 10,000 to 13,000 iterations), and long after the invasion (up to 20,000 iterations). The metacommunity was modified in the post-simulation to amplify the rare species by a factor of two (the rare species were twice as common). Both pre- and post-simulations used the untbSim package with the same parameters used in the previously-mentioned neutral and competitive models. 
 
-Finally, measures for Simpsons and Shannons Diversity Indices and Species Richness, were calculated to compare and contrast neutral, competitive and merged models for resulting biodiversity impacts. 
-
-
+In order to calculate Hill numbers with robust statistical power we used the replicate function to run 500 iterations of our simulation. This created 500 distinct species abundance distributions which were then input into the "Renyi" function from the "Vegan" package to return 500 values of the biodiversity indices from which generated means and standard deviations for all models. These values were then compared across neutral, competitive and merged models for resulting biodiversity impacts. 
 
 **Results** (PJ)                
 
@@ -104,14 +102,6 @@ plot(sort(finalSADneut, decreasing = TRUE), log = 'y',
      main = 'Neutral SAD')
 ```
 
-<<<<<<< HEAD
-Resulting species abundance from the neutral model (277) was higher than that for the competitive model (262). 
--Max abund = 277
-=======
->>>>>>> 78d3fe991645c3f135d6ddc6c771b3ddec458b9d
-
-
-
 *Competitive Model SADs*                  
 
 ```{r, echo = FALSE}
@@ -122,17 +112,6 @@ plot(sort(finalSADComp, decreasing = TRUE), log = 'y',
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Competitive SAD')
 ```
-<<<<<<< HEAD
-
--Max abund = 262
--More species with lower abundances 
--Overall, graphs look similar 
--Linear slope 
-=======
-Resulting species abundance from the neutral model (277) was higher than that for the competitive model (262). Overall, the rank abundance plots for the neutral and competitive models are very similar with the exception of the competitive model having more species with lower abundances. 
->>>>>>> 78d3fe991645c3f135d6ddc6c771b3ddec458b9d
-
-
 
 *Invasion Model SADs*             
 
@@ -188,9 +167,7 @@ plot(abundInvader$tstep, abundInvader$abund, type = 'b',
 
 ```
 
-
 The results from the invasion simulation varied. The pre-invasion and shortly-after invasion results are very similar to each other with steep drops from max abundances across all time steps. For example, max abundance of species pre-invasion is 431, post-short-term invasion is 409 and post-long-term invasion is 354. 
-
 
 ```{r, echo = FALSE}
 #Right before invasion
@@ -381,28 +358,7 @@ longinvas_hillSDs <- apply(hillz_6, 1, sd)
 
 ```
 
-
-The competitive model maintains the highest species richness, Shannons Index, and Simpsons Index values followed by the neutral, post-invasion and pre-invasion simulations, respectively. 
-
-- Simpson's: relative abundances, how evenly the abundances are distributed
-  -Greatest diversity of species in competitive model
-  -Followed by Neutral
-  -Long term after invasion, then post invasion, then pre-invasion is lowest
-  -Relatively invasion model is much lower than both neutral and competitive 
-  
-
--Species richness: count of species in community 
-  -Neutral model has greatest richness
-  -Competitive and pre-invasion are the same
-  -Richness declines post invasion, with lowest at long term after invasion time step 
-  -So fewer species in post-invasion model, but greater evenness regarding abundances across species 
-
--Shannon's: species richness
-  -Neutral and competitive similar and most diverse
-  -Invasion model on the whole is lower
-  -Lowest pre, then after invasion, with short-term post-invasion having the highest of the three 
-
-the importance of rare species decreases in order species richness > Shannon index > Simpson index        
+When evaluating the influence of invasion on diversity indices, the output is different is different for each simulation run. Because of this variability, there is no absolute value for species richness for any of the models. However, species richness across models is equivalent when taking the variability into consideration. Generally, species richness ranges from 22-29 across all models with the variation ranging from 1.5 to 4. Therefore, there is no significant difference in predicted species richness across all models. This trend carries across both the Shannon's and Inverse Simpson's indices for both the output and the variability. 
 
 
 
@@ -431,41 +387,18 @@ kable(hills_all, caption = "Mean Biodiversity Indices")
 
 
 
-**Discussion**
+**Challenges and Conclusions**
 
--Neutral and competitive are very similar, give similar predictions
--Competitive model is more diverse 
--Niche differentiation increases in competitive model, therefore more likely to be diverse than neutral
+Historically, these models have been used to understand patterns of diversity across scales. We expected to see consistently higher values for all diversity metrics using the competitive model due to the understanding that competitive models take into consideration the impact of niche differentiation on diversity (Levine & HilleRisLambers 2009). We expected that invaders would have a negative impact on biodiversity because they might influence populations via competition for space or resource and increase predation interactions in the system (Tan & Beal 2015).
 
+Applying neutral models to marine systems can be slightly more complex than applying the same model to terrestrial ecosystems. For one, dispersal limitation may play a more prominent role in ocean systems where both environmental factors (e.g. ocean currents) and marine life stages (e.g. planktonic larval stages) can influence community structure and biodiversity (Srisvastava and Pavel, 2013). In fact, studies have refuted the neutral model, positing that stochastic spatial-temporal environmental factors play a more important role in driving biodiversity patterns in marine systems (Connolly et al. 2014). For example, Dorenelas et al. (2006) found that coral reef biodiversity better matched with the classical log normal distribution than the neutral model. Further exploration into neutral models is needed as they have shown to be an effective way to model disturbance (Maa 2014). 
 
-- (He&Hu 2005): Like any other diversity indices, the Simpson index is also sensitive to sample size (increase with sample size) although its overall performance against several criteria is superior to many other indices such as the Shannon information entropy . The relationship between the NTB and Simpson diversity suggests that diversity patterns of the metacommunity can also be equally described by the Simpson index. This relationship provides an alternative approach to interpret and estimate the fundamental biodiversity parameter for the metacommunity.
-
-
-- Levine&HRL: Our results support the hypothesis that niche differences strongly stabilize coexistence. Most importantly, our findings provide strong empirical support for the critical role niche differences have in stabilizing species diversity, one of the longest unresolved problems in ecology.In an experiment manipulating species’ relative abundances, population growth rates increased when species became rare—the demographic signature of niche differences. Our work thus provides strong evidence that species differences have a critical role in stabilizing species diversity.
-
-
-
-
+The usefulness of these models for understanding the impacts rare species introductions remains to be seen. Either the model didn't do a good job of evaluating system responses OR, under the neutral model the introduction of rare species does not influence biodiversity patterns. 
 
 *Things to Consider*
-
-Applying neutral models to marine systems can be slightly more complex than applying the same model to terrestrial ecosystems. For one, dispersal limitation may play a more prominent role in ocean systems where both environmental factors (e.g. ocean currents) and marine life stages (e.g. planktonic larval stages) can influence community structure and biodiversity (Srisvastava and Pavel, 2013). In fact, studies have refuted the neutral model, positing that stochastic spatial-temporal environmental factors play a more important role in driving biodiversity patterns in marine systems. For example, Dorenelas et al. (2006) found that coral reef biodiversity 
-
- 
-- Discussion around special considerations for marine systems (Chust et al., 2016)
--Refutes NTB (Dornela et al., 2006)
-  - How does the scale of observation influence model results? (Chisholm and Lichstein, 2009)
-  -What about harvesting activity (disturbance)? How does that play into the NTB model?
-  - - Maa (2014): Neutral models provide a robust null hypothesis because  they can provide estimates of beta diversity based on the simplest metacommunity scenario. However, neutral models can be used to detect disturbances in two different ways: First, data reject neutral predictions because the real assemblages vary too much or too little in terms of species composition and abundance (Dornelas et al. 2006; Caruso et al. 2012a,b); second, communities are really assembled under neutral dynamics, and disturbance directly affects neutral parameters, for example, by decreasing dispersal via increasing habitat fragmentation (Hubbell 2001) or by affecting some fundamental demographic parameters (Dornelas 2010). In this study, we basically used neutral models in the first sense because we believe that in observational studies, robust conclusions can be obtained only when sound statistical null hypotheses are rejected (Gotelli and Ulrich 2012).
-  
-  
-  -How does genetic manipulation from AQ influence biodiversity? *Maybe think of various impacts of AQ on biodiversity, not just genetic manipulation...
-  -- Diana (2009): Many impacts of AQ on biodiversity - introduction of non-natives to local populations, introduction of less-fit genes, introduction of disease, effluents and waste, harvesting of bait fish for aq feed...all of these can have negative impacts on biodiversity. 
-  -Connolly et al., 2014
-  
-*Next Steps*
-
--What worked and didn't work 
+Here are some considerations that may be confounding factors in using these models:
+- Harvesting: One topic that should be considered in the future is the impact of harvesting on local and community biodiversity and the applications of these models to those processes. 
+- Aquaculture practices: Includes the genetic manipulation of organisms, the introduction of rare species into systems, and the expansion of potential habitat via gear (Diana 2009).
 
 
 
