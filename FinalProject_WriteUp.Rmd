@@ -3,9 +3,9 @@ title: 'SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE, & INVASION MODEL
 authors: Phoebe Jekielek and Sarah Risley
 date: "2022-11-30"
 output:
-  word_document: default
   html_document:
     df_print: paged
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
