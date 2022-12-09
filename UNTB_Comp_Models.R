@@ -5,7 +5,11 @@
 ##Installing roleLite
 #devtools::install_github('role-model/roleLite')
 
+##Libraries
 library(roleLite)
+library(vegan)
+library(pika)
+library(tidyverse)
 
 
 ########################
@@ -92,6 +96,7 @@ plot(sort(finalSADComp, decreasing = TRUE), log = 'y',
      xlim = c(0,30))
 
 
+
 ##################
 ###PURTUBATIONS###
 ##################
@@ -148,7 +153,6 @@ plot(abundInvader$tstep, abundInvader$abund, type = 'b',
 
 
 
-
 ###################
 ###INVASION SADS###
 ###################
@@ -186,13 +190,10 @@ postSADinvas <- abundPost$abund[abundPost$tstep == 13000]
 longSADinvas <- abundPost$abund[abundPost$tstep == max(abundPost$tstep)]
 
 
+
 ##################
 ###HILL NUMBERS###
 ##################
-
-#hill package 
-library(vegan)
-library(pika)
 
 # params set-up
 Sm <- 50
@@ -249,29 +250,187 @@ comp_hillSDs <- apply(hillz_2, 1, sd)
 
 
 ## Invasion sim hill 
-hillz_2 <- replicate(500, # number of times to replicate
+
+# All
+hillz_3 <- replicate(500, # number of times to replicate
                      { # put all the code you need to replicate inside the { }
-                             oneComp <- compSim(J = J, Sm = Sm, Jm = 10000, 
-                                                nu = nu,m = m, alpha = a, niter = niter) 
+                             metaSAD <- pika::rlseries(S, 0.001) 
+                             untbPre <- untbSim(J = J, nu = nu, m = m, niter = niter,
+                                                initMeta = metaSAD) # pre invasion
                              
-                             oneFinalSAD <- getAbund(oneComp, tstep = nrow(oneComp))
+                             newMetaSAD <- metaSAD # modifying meta community
+                             irare <- which.min(newMetaSAD)[1] # index of a rare species
+                             newMetaSAD[irare] <- 2 * max(newMetaSAD) # amplifying rare x2
+                             
+                             untbPost <- untbSim(J = J, nu = nu, m = m, niter = niter, 
+                                                 initLocal = untbPre[nrow(untbPre), ], 
+                                                 initMeta = newMetaSAD) # post invasion
+                             
+                             abundPre <- getAbund(untbPre) # combining sims
+                             abundPost <- getAbund(untbPost)
+                             abundPost <- abundPost[abundPost$tstep != 0, ] # removing overlap
+                             abundPost$tstep <- abundPost$tstep + max(abundPre$tstep) # timesteps post after pre
+                             abundAll <- rbind(abundPre, abundPost) # combining
+                             
+                             oneFinalSAD <- abundAll$abund[abundAll$tstep == max(abundAll$tstep)]
+                
                              
                              # hill numbers
-                             theseHill <- renyi(oneFinalSAD$abund, scales = 0:2, 
+                             theseHill <- renyi(oneFinalSAD, scales = 0:2, 
                                                 hill = TRUE)
                              
                              # last line inside the {} should be the output you want
                              return(theseHill)
+                            
                      })
 
+# Summarizing this raw simulation, mean and SD are good options
+allinvas_hillMeans <- apply(hillz_3, 1, mean)
+allinvas_hillSDs <- apply(hillz_3, 1, sd)
+
+
+
+
+# Pre
+hillz_4 <- replicate(500, # number of times to replicate
+                     { # put all the code you need to replicate inside the { }
+                             metaSAD <- pika::rlseries(S, 0.001) 
+                             untbPre <- untbSim(J = J, nu = nu, m = m, niter = niter,
+                                                initMeta = metaSAD) # pre invasion
+                             
+                             newMetaSAD <- metaSAD # modifying meta community
+                             irare <- which.min(newMetaSAD)[1] # index of a rare species
+                             newMetaSAD[irare] <- 2 * max(newMetaSAD) # amplifying rare x2
+                             
+                             untbPost <- untbSim(J = J, nu = nu, m = m, niter = niter, 
+                                                 initLocal = untbPre[nrow(untbPre), ], 
+                                                 initMeta = newMetaSAD) # post invasion
+                             
+                             abundPre <- getAbund(untbPre) # combining sims
+                             abundPost <- getAbund(untbPost)
+                             abundPost <- abundPost[abundPost$tstep != 0, ] # removing overlap
+                             abundPost$tstep <- abundPost$tstep + max(abundPre$tstep) # timesteps post after pre
+                             abundAll <- rbind(abundPre, abundPost) # combining
+                             
+                             oneFinalSAD <- abundPre$abund[abundPre$tstep == max(abundPre$tstep)]
+                             
+                             
+                             # hill numbers
+                             theseHill <- renyi(oneFinalSAD, scales = 0:2, 
+                                                hill = TRUE)
+                             
+                             # last line inside the {} should be the output you want
+                             return(theseHill)
+                             
+                     })
 
 # Summarizing this raw simulation, mean and SD are good options
-comp_hillMeans <- apply(hillz_2, 1, mean)
-comp_hillSDs <- apply(hillz_2, 1, sd)
+preinvas_hillMeans <- apply(hillz_4, 1, mean)
+preinvas_hillSDs <- apply(hillz_4, 1, sd)
 
 
 
 
+# Short-term post
+hillz_5 <- replicate(500, # number of times to replicate
+                     { # put all the code you need to replicate inside the { }
+                             metaSAD <- pika::rlseries(S, 0.001) 
+                             untbPre <- untbSim(J = J, nu = nu, m = m, niter = niter,
+                                                initMeta = metaSAD) # pre invasion
+                             
+                             newMetaSAD <- metaSAD # modifying meta community
+                             irare <- which.min(newMetaSAD)[1] # index of a rare species
+                             newMetaSAD[irare] <- 2 * max(newMetaSAD) # amplifying rare x2
+                             
+                             untbPost <- untbSim(J = J, nu = nu, m = m, niter = niter, 
+                                                 initLocal = untbPre[nrow(untbPre), ], 
+                                                 initMeta = newMetaSAD) # post invasion
+                             
+                             abundPre <- getAbund(untbPre) # combining sims
+                             abundPost <- getAbund(untbPost)
+                             abundPost <- abundPost[abundPost$tstep != 0, ] # removing overlap
+                             abundPost$tstep <- abundPost$tstep + max(abundPre$tstep) # timesteps post after pre
+                             abundAll <- rbind(abundPre, abundPost) # combining
+                             
+                             oneFinalSAD <- abundPost$abund[abundPost$tstep == 13000]
+                             
+                             
+                             # hill numbers
+                             theseHill <- renyi(oneFinalSAD, scales = 0:2, 
+                                                hill = TRUE)
+                             
+                             # last line inside the {} should be the output you want
+                             return(theseHill)
+                             
+                     })
+# Summarizing this raw simulation, mean and SD are good options
+postinvas_hillMeans <- apply(hillz_5, 1, mean)
+postinvas_hillSDs <- apply(hillz_5, 1, sd)
 
 
 
+
+# Long-Term Post
+hillz_6 <- replicate(500, # number of times to replicate
+                     { # put all the code you need to replicate inside the { }
+                             metaSAD <- pika::rlseries(S, 0.001) 
+                             untbPre <- untbSim(J = J, nu = nu, m = m, niter = niter,
+                                                initMeta = metaSAD) # pre invasion
+                             
+                             newMetaSAD <- metaSAD # modifying meta community
+                             irare <- which.min(newMetaSAD)[1] # index of a rare species
+                             newMetaSAD[irare] <- 2 * max(newMetaSAD) # amplifying rare x2
+                             
+                             untbPost <- untbSim(J = J, nu = nu, m = m, niter = niter, 
+                                                 initLocal = untbPre[nrow(untbPre), ], 
+                                                 initMeta = newMetaSAD) # post invasion
+                             
+                             abundPre <- getAbund(untbPre) # combining sims
+                             abundPost <- getAbund(untbPost)
+                             abundPost <- abundPost[abundPost$tstep != 0, ] # removing overlap
+                             abundPost$tstep <- abundPost$tstep + max(abundPre$tstep) # timesteps post after pre
+                             abundAll <- rbind(abundPre, abundPost) # combining
+                             
+                             oneFinalSAD <- abundPost$abund[abundPost$tstep == max(abundPost$tstep)]
+                             
+                             
+                             # hill numbers
+                             theseHill <- renyi(oneFinalSAD, scales = 0:2, 
+                                                hill = TRUE)
+                             
+                             # last line inside the {} should be the output you want
+                             return(theseHill)
+                             
+                     })
+
+# Summarizing this raw simulation, mean and SD are good options
+longinvas_hillMeans <- apply(hillz_6, 1, mean)
+longinvas_hillSDs <- apply(hillz_6, 1, sd)
+
+
+
+## Compiling
+hills_all <- rbind(neut_hillMeans,neut_hillSDs,
+             comp_hillMeans, comp_hillSDs,
+             preinvas_hillMeans, preinvas_hillSDs,
+             postinvas_hillMeans, postinvas_hillSDs,
+             longinvas_hillMeans,longinvas_hillSDs)
+
+hills_all <-round(hills_all, digits = 2)
+
+hills_all <- hills_all %>% 
+        rename("0" = "Species Richness",
+               "1" = "Shannons Index",
+               "2" = "Inverse Simpson",
+               "neut_hillMeans" = "Neutral Model",
+               "neut_hillSDs" = "SD",
+               "comp_hillMeans" = "Competitive Model",
+               "comp_hillSDs" = "SD",
+               "preinvas_hillMeans" = "Pre-Invasion Model",
+               "preinvas_hillSDs" = "SD",
+               "postinvas_hillMeans" = "Short-Term Post Invasion",
+               "postinvas_hillSDs" = "SD",
+               "longinvas_hillMeans" = "Long-Term Post Invasion",
+               "longinvas_hillSDs" = "SD")
+
+kable(hills_all, caption = "Mean Biodiversity Indices")
