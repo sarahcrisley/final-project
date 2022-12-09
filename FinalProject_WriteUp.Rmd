@@ -401,7 +401,8 @@ Applying neutral models to marine systems can be slightly more complex than appl
 
 The usefulness of these models for understanding the impacts rare species introductions remains to be seen. Either the model didn't do a good job of evaluating system responses OR, under the neutral model the introduction of rare species does not influence biodiversity patterns. 
 
-*Things to Consider*
+*Things to Consider*                        
+
 Here are some considerations that may be confounding factors in using these models:
 
 - Harvesting activity: One topic that should be considered in the future is the impact of harvesting on local and community biodiversity and the applications of these models to those processes. 
