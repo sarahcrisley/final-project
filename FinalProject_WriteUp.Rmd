@@ -104,8 +104,7 @@ plot(sort(finalSADneut, decreasing = TRUE), log = 'y',
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Neutral SAD')
 ```
-Resulting species abundance from the neutral model (277) was higher than that for the competitive model (262). 
--Max abund = 277
+
 
 (COMP SAD)
 ```{r, echo = FALSE}
@@ -116,10 +115,7 @@ plot(sort(finalSADComp, decreasing = TRUE), log = 'y',
      xlab = 'Rank', ylab = 'Abundance',
      main = 'Competitive SAD')
 ```
--Max abund = 262
--More species with lower abundances 
--Overall, graphs look similar 
--Linear slope 
+Resulting species abundance from the neutral model (277) was higher than that for the competitive model (262). Overall, the rank abundance plots for the neutral and competitive models are very similar with the exception of the competitive model having more species with lower abundances. 
 
 
 (INVASION SADs)
@@ -175,8 +171,7 @@ plot(abundInvader$tstep, abundInvader$abund, type = 'b',
      xlab = 'Timestep', ylab = 'Abundance')
 
 ```
-
-
+The results from the invastion simulation varied. The pre-invasion and shortly-after invasion results are very similar to each other with steep drops from max abundances across all time steps. For example, max abundance of species pre-invasion is 431, post-short-term invasion is 409 and post-long-term invasion is 354. 
 ```{r, echo = FALSE}
 #Right before invasion
 plot(sort(abundPre$abund[abundPre$tstep == max(abundPre$tstep)], 
@@ -196,15 +191,7 @@ plot(sort(abundPost$abund[abundPost$tstep == max(abundPost$tstep)],
      log = 'y', 
      xlab = 'Rank', ylab = 'Abundance', main = 'Long after invasion')
 ```
-
--Pre and shortly after look very similar
--Steep drop from max abundances species across all time steps
--Appears to be two curves in graphs with break between rank 10-15 for short- and long-term after invasion, but not pre-invasion 
-
-
-pre:431
-post short-term: 409
-post long-term: 354
+ 
 
 TABLE--FIX TABLE
 
@@ -239,7 +226,7 @@ pre_1 <- hillR::hill_taxa(preSADinvas, q)
 post_1 <- hillR::hill_taxa(postSADinvas, q)
 long_1 <- hillR::hill_taxa(longSADinvas, q)
 ```
-
+The competitive model maintains the highest species richness, Shannons Index, and Simpsons Index values followed by the neutral, post-invasion and pre-invasion simulations, respectively. 
 
 
 ```{r, echo = FALSE}
@@ -257,7 +244,7 @@ tab
 
 
 - Simpson's: relative abundances, how evenly the abundances are distributed
-  -Greatest diversity of species in competative model
+  -Greatest diversity of species in competitive model
   -Followed by Neutral
   -Long term after invasion, then post invasion, then pre-invasion is lowest
   -Relatively invasion model is much lower than both neutral and competitive 
