@@ -19,7 +19,7 @@ library(tidyverse)
 library(knitr)
 ```
 
-**Introduction**
+**Introduction**        
 
 Hubbell's neutral theory of biodiversity and biogeography highlights the importance of unifying ecological processes--birth, death, and immigration--and offers a null model that can provide insight into current and future species-abundance distributions. Neutral theory is commonly used in ecology to describe and understand biodiversity and evolution patterns, and although its applications are expanding, it primarily supports theoretical exploration (Rosindell et al., 2011). Although neutral theory had been applied in the marine context (see Alzate et al., 2019, Dolan et al., 2007, Wootton, 2005, among others), it is not commonly used in marine ecosystems or for species that are targeted by marine fisheries. 
 
@@ -28,7 +28,7 @@ Biodiversity indices have been developed over the years to help us compare and m
 In this study, we seek to explore how neutral theory can be used to understand biodiversity patterns in intertidal marine ecosystems, with a focus on commercially important shellfish species. Using classical biodiversity indices, will compare the neutral theory model to a competitive model and assess how well each model represents biodiversity patterns in a marine ecosystem. Specifically, we will model the biodiversity patterns that occur under immigration pulses from rare species. This approach aims to model recent species introductions observed in many of Maine's intertidal marine ecosystems, namely the introduction of wild American oysters and increases in invasive green crab populations. This study will inform future analyses and help to identify potential forces driving biodiversity patterns in these systems.    
 
 
-**Study System** 
+**Study System**        
 
 The Damariscotta River estuary, located in midcoast Maine, hosts a diversity of coastal marine habitats ranging from rocky shores to soft sediment intertidal areas and eelgrass beds. The estuary is home to extensive human activity, including recreational boating, commercial fishing, and shellfish aquaculture. The Damariscotta has more than a dozen marine aquaculture operations that total 0.93 km², where farmers grow American oysters, mussels, scallops, and kelp (Maine DMR, 2022). The biodiversity in the Damariscotta is similar to other estuaries in the Gulf of Maine and varies along habitat type and physical and biological gradients (Britsch, 2021). 
 
@@ -37,15 +37,9 @@ The intertidal mudflat is the focus of this study. This habitat hosts a diversit
 Therefore, the Damariscotta has two 'rare' species whose growth and expansion could affect the biodiversity of the whole system. This study seeks two explore how increases in rare species, like the wild American oyster and the green crab, can influence biodiversity within the ecosystem. 
 
 
-**Methods** (PJ)
+**Methods**         
 
-For this project we will use R Studio to simulate both a neutral theory model and a competitive model for the system. We utilized the "roleLite" R package (xversion 0.1.0, Rominger) and then utilized the untbSim function to run a neutral simulation for a null model evaluation with the following parameters: 
- neut <- untbSim(J = 1000, # number of individuals in local community
-+                 Sm = 50, # number of species in meta community
-+                 Jm = 10000, # number of individuals in meta community
-+                 nu = 0, # speciation probability
-+                 m = 0.1, # immigration probability 
-+                 niter = 10000) # number of iteration to run
+For this project we will use R Studio to simulate both a neutral theory model and a competitive model for the system. We utilized the roleLite R package (xversion 0.1.0, Rominger) and then utilized the untbSim function to run a neutral simulation for a null model evaluation with the following parameters: J = 1000 (number of individuals in local community), Sm = 50 (number of species in meta community), Jm = 10000 (number of individuals in meta community), nu = 0 (speciation probability), m = 0.1 (immigration probability), and niter = 10000 (number of iterations to run). These parameters were applied across all models. 
 
 Additionally, we ran a competitive simulation model using the compSim function. This simulation used a competitive matrix with intraspecies competition removed in order to increase average niche differentiation. Both models were visualized using the final time step of a species abundance distribution (SAD) and biodiversity indices (Simpsons, Shannons, Richness) were calculated for each model. 
 
@@ -55,7 +49,7 @@ Finally, measures for Simpsons and Shannons Diversity Indices and Species Richne
 
 
 
-**Results** (PJ)
+**Results** (PJ)                
 
 
 ```{r, include=FALSE}
@@ -98,7 +92,7 @@ head(compAbund)
 ```
 
 
-(NEUTRAL SAD)
+*Neutral Model SADs*                
 
 
 ```{r, echo = FALSE}
@@ -116,7 +110,9 @@ Resulting species abundance from the neutral model (277) was higher than that fo
 =======
 >>>>>>> 78d3fe991645c3f135d6ddc6c771b3ddec458b9d
 
-(COMP SAD)
+
+
+*Competitive Model SADs*                  
 
 ```{r, echo = FALSE}
 ##Looking at the final SAD for comp
@@ -137,7 +133,8 @@ Resulting species abundance from the neutral model (277) was higher than that fo
 >>>>>>> 78d3fe991645c3f135d6ddc6c771b3ddec458b9d
 
 
-(INVASION SADs)
+
+*Invasion Model SADs*             
 
 ```{r, include=FALSE}
 ###PURTUBATIONS###
@@ -190,7 +187,11 @@ plot(abundInvader$tstep, abundInvader$abund, type = 'b',
      xlab = 'Timestep', ylab = 'Abundance')
 
 ```
-The results from the invastion simulation varied. The pre-invasion and shortly-after invasion results are very similar to each other with steep drops from max abundances across all time steps. For example, max abundance of species pre-invasion is 431, post-short-term invasion is 409 and post-long-term invasion is 354. 
+
+
+The results from the invasion simulation varied. The pre-invasion and shortly-after invasion results are very similar to each other with steep drops from max abundances across all time steps. For example, max abundance of species pre-invasion is 431, post-short-term invasion is 409 and post-long-term invasion is 354. 
+
+
 ```{r, echo = FALSE}
 #Right before invasion
 plot(sort(abundPre$abund[abundPre$tstep == max(abundPre$tstep)], 
@@ -212,7 +213,7 @@ plot(sort(abundPost$abund[abundPost$tstep == max(abundPost$tstep)],
 ```
  
 
-TABLE
+*Calculating Hill Numbers: Model Biodiversity Indices*                
 
 ```{r, include = FALSE}
 ###HILL NUMBERS###
@@ -379,6 +380,8 @@ longinvas_hillMeans <- apply(hillz_6, 1, mean)
 longinvas_hillSDs <- apply(hillz_6, 1, sd)
 
 ```
+
+
 The competitive model maintains the highest species richness, Shannons Index, and Simpsons Index values followed by the neutral, post-invasion and pre-invasion simulations, respectively. 
 
 
@@ -446,27 +449,25 @@ differences have a critical role in stabilizing species diversity.
 
 
 
-<<<<<<< HEAD
+
 *Things to Consider*
-=======
-*Things to Consider* (SCR)
->>>>>>> cf00a3e175f46073c7bc04311c3e508d79dd1fed
+
+The invasion model 
 - Discussion around special considerations for marine systems (Chust et al., 2016)
 -Refutes NTB (Dornela et al., 2006)
   -What about different dispersal rates? (Srisvastava and Pavel, 2013)
   - How does the scale of observation influence model results? (Chisholm and Lichstein, 2009)
   -What about harvesting activity (disturbance)? How does that play into the NTB model?
   - - Maa (2014): Neutral models provide a robust null hypothesis because  they can provide estimates of beta diversity based on the simplest metacommunity scenario. However, neutral models can be used to detect disturbances in two different ways: First, data reject neutral predictions because the real assemblages vary too much or too little in terms of species composition and abundance (Dornelas et al. 2006; Caruso et al. 2012a,b); second, communities are really assembled under neutral dynamics, and disturbance directly affects neutral parameters, for example, by decreasing dispersal via increasing habitat fragmentation (Hubbell 2001) or by affecting some fundamental demographic parameters (Dornelas 2010). In this study, we basically used neutral models in the first sense because we believe that in observational studies, robust conclusions can be obtained only when sound statistical null hypotheses are rejected (Gotelli and Ulrich 2012).
+  
+  
   -How does genetic manipulation from AQ influence biodiversity? *Maybe think of various impacts of AQ on biodiversity, not just genetic manipulation...
   -- Diana (2009): Many impacts of AQ on biodiversity - introduction of non-natives to local populations, introduction of less-fit genes, introduction of disease, effluents and waste, harvesting of bait fish for aq feed...all of these can have negative impacts on biodiversity. 
   -Connolly et al., 2014
+  
+*Next Steps*
+
 -What worked and didn't work 
-
-
-**ADD CODE BELOW SO FIGURES CAN BE IN SINGLE DOC**
-*look at old spatial analysis Rmd for how to hide code in knit*
-
-
 
 
 
