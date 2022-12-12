@@ -1,7 +1,7 @@
 ---
 title: "SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE & INVASION MODELS"
-author: "Phoebe Jekielek and Sarah Risley"
-date: "Fall, 2022"
+author: "Phoebe Jekielek and Sarah Risley"        
+date: "Fall, 2022"        
 output:
   github_document: default
   html_document: default
@@ -394,6 +394,8 @@ kable(hills_all, caption = "Mean Biodiversity Indices")
 ```
 
 
+
+        
 **Challenges and Conclusions**                    
 
 Historically, these models have been used to understand patterns of diversity across scales. We expected to see consistently higher values for all diversity metrics using the competitive model due to the understanding that competitive models take into consideration the impact of niche differentiation on diversity (Levine and HilleRisLambers, 2009). We expected that invaders would have a negative impact on biodiversity because they might influence populations via competition for space or resource and increase predation interactions in the system (Tan and Beal, 2015).
@@ -406,9 +408,11 @@ The usefulness of these models for understanding the impacts rare species introd
 
 Here are some considerations that may be confounding factors in using these models:
 
-- Harvesting activity: One topic that should be considered in the future is the impact of harvesting on local and community biodiversity and the applications of these models to those processes. 
-- Aquaculture practices: Includes the genetic manipulation of organisms, the introduction of rare species into systems, and the expansion of potential habitat via gear (Diana, 2009).
--Grounding in data: These models are excellent for identifying hypotheses or theories related to a system. It would be interesting to explore how these models could be integrated with long-term empirical datasets and how models such as this could inform monitoring practices and data analysis. 
+- Harvesting activity: One topic that should be considered in the future is the impact of harvesting on local and community biodiversity and the applications of these models to those processes.         
+- Aquaculture practices: Includes the genetic manipulation of organisms, the introduction of rare species into systems, and the expansion of potential habitat via gear (Diana, 2009).       
+- Grounding in data: These models are excellent for identifying hypotheses or theories related to a system. It would be interesting to explore how these models could be integrated with long-term empirical datasets and how models such as this could inform monitoring practices and data analysis. 
+
+
 
 
 

@@ -173,16 +173,16 @@ the variability.
 
 |                          | Species Richness | Shannons Index | Inverse Simpsons |
 |:-------------------------|-----------------:|---------------:|-----------------:|
-| Neutral Model            |            28.68 |          15.03 |            10.72 |
-| SD Neut                  |             2.02 |           1.28 |             1.22 |
-| Competitive Model        |            25.23 |          10.21 |             6.98 |
-| SD Comp                  |             2.26 |           1.58 |             1.25 |
-| Pre-Invasion Model       |            26.85 |          12.50 |             8.71 |
-| SD Invas1                |             3.17 |           2.92 |             2.66 |
-| Short-Term Post Invasion |            26.30 |          13.00 |             9.27 |
-| SD Invas2                |             3.50 |           2.98 |             2.73 |
-| Long-Term Post Invasion  |            25.14 |          12.15 |             8.83 |
-| SD Invas3                |             3.53 |           2.76 |             2.35 |
+| Neutral Model            |            26.06 |           9.96 |             6.80 |
+| SD Neut                  |             2.29 |           1.06 |             0.76 |
+| Competitive Model        |            26.59 |          13.00 |             8.88 |
+| SD Comp                  |             2.14 |           1.40 |             1.15 |
+| Pre-Invasion Model       |            26.43 |          12.19 |             8.48 |
+| SD Invas1                |             3.62 |           2.89 |             2.60 |
+| Short-Term Post Invasion |            26.44 |          13.38 |             9.66 |
+| SD Invas2                |             3.64 |           2.81 |             2.58 |
+| Long-Term Post Invasion  |            25.51 |          12.33 |             8.97 |
+| SD Invas3                |             3.57 |           2.83 |             2.43 |
 
 Mean Biodiversity Indices
 
@@ -226,15 +226,15 @@ these models:
 -   Harvesting activity: One topic that should be considered in the
     future is the impact of harvesting on local and community
     biodiversity and the applications of these models to those
-    processes.
+    processes.  
 -   Aquaculture practices: Includes the genetic manipulation of
     organisms, the introduction of rare species into systems, and the
-    expansion of potential habitat via gear (Diana, 2009). -Grounding in
-    data: These models are excellent for identifying hypotheses or
-    theories related to a system. It would be interesting to explore how
-    these models could be integrated with long-term empirical datasets
-    and how models such as this could inform monitoring practices and
-    data analysis.
+    expansion of potential habitat via gear (Diana, 2009).  
+-   Grounding in data: These models are excellent for identifying
+    hypotheses or theories related to a system. It would be interesting
+    to explore how these models could be integrated with long-term
+    empirical datasets and how models such as this could inform
+    monitoring practices and data analysis.
 
 **References**
 
