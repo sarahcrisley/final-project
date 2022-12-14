@@ -1,6 +1,7 @@
 SIMULATING BIODIVERSITY PATTERNS: NEUTRAL, COMPETITIVE & INVASION MODELS
 ================
-Phoebe Jekielek and Sarah Risley
+Phoebe Jekielek and Sarah Risley            
+
 Fall, 2022
 
 **Introduction**
